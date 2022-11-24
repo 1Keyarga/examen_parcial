@@ -7,5 +7,6 @@ urlpatterns = [
         
     path('', views.ingreso, name='ingreso'),
     path('dashboard', views.dashboard, name='dashboard'),
-    path('eliminar/<int:idTarea>', views.eliminaRegistro, name='eliminaRegistro')
+    path('eliminar/<int:idTarea>', views.eliminaRegistro, name='eliminaRegistro'),
+    path('ver/<int:idTarea>', views.verTarea, name='verTarea')
 ]

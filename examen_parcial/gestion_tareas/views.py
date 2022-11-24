@@ -41,10 +41,8 @@ def dashboard(request):
         # eliminarID = tarea.objects.get(id=idElimina)
          #eliminarID.delete()
          
-         
-    
-    
-    return   render(request,'gestion_tareas/dashboard.html',{
+
+    return  render(request,'gestion_tareas/dashboard.html',{
         'tareasUsuario':tareasUsuario
     })
     
@@ -55,8 +53,18 @@ def eliminaRegistro(request, idTarea):
     tareas = tarea.objects.get(id = idTarea)
     #elimina el registro con el id igual
     tareas.delete()
-    #selecciona todos las tareas restantes para retornarlas
-    tareasUsuario = tarea.objects.all().order_by('id')
-    #redirecciona a la pagina padre
+    #redirecciona a la pagina padre acabando la funcion
     return redirect('gestion_tareas:dashboard')
 
+
+def verTarea(request, idTarea):
+    #obtiene el registro igual al id
+    tareaVisualizar = tarea.objects.get(id = idTarea)      
+    #retorn el registro con el id igual
+    return  render(request,'gestion_tareas/detalleTarea.html',{
+        "tareaVisualizar": tareaVisualizar
+    })
+     
+     
+
+    

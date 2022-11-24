@@ -89,9 +89,12 @@
                                         <td>{{tareauser.titulo}}</td>
                                         <td>{{tareauser.fechaCreacion}}</td>
                                         <td>
-                                            <div class="align-items-center text-center" style= "color:white">
-                                                <button type="submit" name = "Ver" class="botonVer"><i class="fas fa-eye"></i></button> 
-                                            </div>
+                                            <form  method = "post" action= "{% url 'gestion_tareas:verTarea' tareauser.id %}">
+                                                {% csrf_token %}
+                                                <div class="align-items-center text-center" style= "color:white">
+                                                    <button type="submit" name = "Ver" class="botonVer"><i class="fas fa-eye"></i></button> 
+                                                </div>
+                                            </form>
                                         </td>
                                         <td>
                                             <form  method = "post" action= "{% url 'gestion_tareas:eliminaRegistro' tareauser.id %}">

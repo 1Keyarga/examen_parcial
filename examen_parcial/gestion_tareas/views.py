@@ -34,7 +34,13 @@ def dashboard(request):
         
         return redirect('gestion_tareas:ingreso')
     
-    
+    elif  'Eliminar' in request.POST:
+        
+         idElimina = request.POST.get('idEliminar')    
+         instance = tarea.objects.get(id=idElimina)
+         instance.delete()
+         
+         
     
     
     return   render(request,'gestion_tareas/dashboard.html',{

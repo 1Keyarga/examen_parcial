@@ -83,19 +83,20 @@
 
                         <tbody>
                             <form method = "post" action= "{% url 'gestion_tareas:dashboard' %}">
+                                {% csrf_token %}
                                 {% for tareauser in tareasUsuario %}  
                                     <tr>
-                                        <th>{{tareauser.id}}</th>
+                                        <th name = "idEliminar">{{tareauser.id}}</th>    
                                         <td>{{tareauser.titulo}}</td>
                                         <td>{{tareauser.fechaCreacion}}</td>
                                         <td>
                                             <div class="align-items-center text-center" style= "color:white">
-                                                <button type="submit" name = "Eliminar " class="botonVer"><i class="fas fa-eye"></i></button> 
+                                                <button type="submit" name = "Ver" class="botonVer"><i class="fas fa-eye"></i></button> 
                                             </div>
                                         </td>
                                         <td>
                                             <div class="align-items-center text-center" style= "color:white">
-                                                <button type="submit" name = "Eliminar " class="botonEliminar"><i class="fas fa-trash"></i></button> 
+                                                <button type="submit" name = "Eliminar" class="botonEliminar"><i class="fas fa-trash"></i></button> 
                                             </div>
                                         </td>
                                     </tr>

@@ -82,11 +82,10 @@
                         </thead>
 
                         <tbody>
-                            <form method = "post" action= "{% url 'gestion_tareas:dashboard' %}">
-                                {% csrf_token %}
+                           
                                 {% for tareauser in tareasUsuario %}  
                                     <tr>
-                                        <th name = "idEliminar">{{tareauser.id}}</th>    
+                                        <th scop="row">{{tareauser.id}}</th>
                                         <td>{{tareauser.titulo}}</td>
                                         <td>{{tareauser.fechaCreacion}}</td>
                                         <td>
@@ -95,14 +94,17 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="align-items-center text-center" style= "color:white">
-                                                <button type="submit" name = "Eliminar" class="botonEliminar"><i class="fas fa-trash"></i></button> 
-                                            </div>
+                                            <form  method = "post" action= "{% url 'gestion_tareas:eliminaRegistro' tareauser.id %}">
+                                                {% csrf_token %}
+                                                <div class="align-items-center text-center" style= "color:white">
+                                                    <button type="submit" name = "Eliminar" class="botonEliminar"><i class="fas fa-trash"></i></button> 
+                                                </div>
+                                            </form>
                                         </td>
                                     </tr>
                                 
                                 {% endfor %}
-                            </form>
+                           
                         </tbody>
                       </table>
                       

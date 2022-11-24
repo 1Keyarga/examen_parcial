@@ -6,5 +6,6 @@ app_name = 'gestion_tareas'
 urlpatterns = [
         
     path('', views.ingreso, name='ingreso'),
-    path('dashboard', views.dashboard, name='dashboard')
+    path('dashboard', views.dashboard, name='dashboard'),
+    path('eliminar/<int:idTarea>', views.eliminaRegistro, name='eliminaRegistro')
 ]

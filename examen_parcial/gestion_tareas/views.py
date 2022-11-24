@@ -34,11 +34,12 @@ def dashboard(request):
         
         return redirect('gestion_tareas:ingreso')
     
-    elif  'Eliminar' in request.POST:
+   # elif  'Eliminar' in request.POST:
         
-         idElimina = request.POST.get('idEliminar')    
-         instance = tarea.objects.get(id=idElimina)
-         instance.delete()
+         #idElimina = request.POST.get('valor') 
+        # print(idElimina)
+        # eliminarID = tarea.objects.get(id=idElimina)
+         #eliminarID.delete()
          
          
     
@@ -47,3 +48,15 @@ def dashboard(request):
         'tareasUsuario':tareasUsuario
     })
     
+    
+
+def eliminaRegistro(request, idTarea):
+    #obtiene el registro igual al id
+    tareas = tarea.objects.get(id = idTarea)
+    #elimina el registro con el id igual
+    tareas.delete()
+    #selecciona todos las tareas restantes para retornarlas
+    tareasUsuario = tarea.objects.all().order_by('id')
+    #redirecciona a la pagina padre
+    return redirect('gestion_tareas:dashboard')
+

@@ -55,7 +55,24 @@
             <div class="row h-100">
                 <div class = "col-1"></div>
                 <div class = "col-10" style="background-color: green;">
-
+                    <form method = "post" action= "{% url 'gestion_tareas:dashboard' %}">
+                        {% csrf_token %}   
+                            <div>
+                            
+                                <input type="text" name = "nombreUsuario">
+                            </div>
+                            <div>
+                                
+                                <input type="text" name = "apellidoUsuario">
+                            </div>
+                            <div>
+                                
+                                <input type="number" name = "edadUsuario">
+                            </div>
+                            
+                            <button type="submit" name = "Crear">Registrar Tarea</button>
+                        </form>
+                
                 </div>
                 <div class = "col-1"></div>
             </div>

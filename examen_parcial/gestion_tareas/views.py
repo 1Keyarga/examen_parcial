@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from .models import usuario
 from .models import tarea
+from datetime import date
+from datetime import datetime
 # Create your views here.
-
 
 def ingreso(request):
     #usuarios ordenados
@@ -40,7 +41,14 @@ def dashboard(request):
         # print(idElimina)
         # eliminarID = tarea.objects.get(id=idElimina)
          #eliminarID.delete()
-         
+     
+    elif 'Crear' in request.POST:
+        #agarramos el dia de hoy
+        fechaCreacionPrima = datetime.now()
+        #actualizamos el dia de hoy como dias/mes/año
+        fechaCreacionPrima.strftime("%d/%m/%Y")
+        
+             
 
     return  render(request,'gestion_tareas/dashboard.html',{
         'tareasUsuario':tareasUsuario
@@ -64,7 +72,9 @@ def verTarea(request, idTarea):
     return  render(request,'gestion_tareas/detalleTarea.html',{
         "tareaVisualizar": tareaVisualizar
     })
-     
+
+
+ 
      
 
     

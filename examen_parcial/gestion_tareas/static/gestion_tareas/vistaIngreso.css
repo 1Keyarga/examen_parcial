@@ -1,0 +1,46 @@
+html, body{
+    height: 100%;
+}
+#cuerpoApp{
+    background-color:#1A5276;
+}
+
+.superioParte{
+    height:15%;
+ 
+}
+.medioParte{
+    height:70%;
+}
+.inferiorParte{
+    height:15%;
+}
+
+.inputUsuario{
+    color:black;
+    width:80%;
+    height: 60px;
+    border-color: white;
+    margin-top:25px;
+
+}
+
+.inputContrasenha{
+color:black;
+   width:80%;
+   height: 60px;
+   border-color: white;
+   margin:10px;
+
+}
+
+.btnLogIn{
+
+    color:black;
+    width:80%;
+    height: 60px;
+    background-color:skyblue;
+    border-radius:0;
+    border-color: white;
+    margin:20px;
+}

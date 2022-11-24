@@ -1,0 +1,85 @@
+html, body{
+    height: 100%;
+}
+#cuerpoApp{
+    background-color:white;
+}
+.cabecera{
+    height:5%;
+    width:100%;
+}
+
+.cuerpo{
+    height:30%;
+
+}
+
+.tabla{
+   height:65%;
+}
+
+
+.botonIngreso{
+
+    color:azure;
+    background-color:dodgerblue;
+    border-radius:0;
+    border-color: transparent;
+
+}
+
+.botonIngreso:hover{
+    color:aquamarine;
+}
+
+.botonSalir{
+    color:white;
+    background-color:green;
+    border-radius:0;
+    border-color: transparent;
+    height:37px;
+}
+
+.botonSalir:hover{
+
+    color:blue;
+
+
+}
+
+.botonEliminar{
+
+    color:white;
+    background-color:red;
+    border-radius:0;
+    border-color: transparent;
+    width:50px;
+    height:40px;
+
+}
+
+.botonEliminar:hover{
+
+    background-color:darkorange;
+
+
+}
+
+.botonVer{
+
+    color:black;
+    background-color:skyblue;
+    border-radius:0;
+    border-color: transparent;
+    width:50px;
+    height:40px;
+}
+
+.botonVer:hover{
+
+    background-color:cornflowerblue;
+
+
+}
+
+

@@ -81,4 +81,19 @@ html, body{
 
 }
 
+.botonRegistrar{
+
+    color:white;
+    background-color:crimson;
+    border-color:black;
+    border-width: 1px;
+    border-style: solid;
+    height:50px;
+
+}
+.botonRegistrar:hover{
+
+    background-color:chocolate;
+
+}
 

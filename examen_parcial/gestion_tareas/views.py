@@ -45,10 +45,17 @@ def dashboard(request):
     elif 'Crear' in request.POST:
         #agarramos el dia de hoy
         fechaCreacionPrima = datetime.now()
-        #actualizamos el dia de hoy como dias/mes/año
-        fechaCreacionPrima.strftime("%d/%m/%Y")
+    
+        #obtenemos las variables pasadas
+        tituloP = request.POST.get('tituloU')
+        descripcionP = request.POST.get('descripcionU')
+        fechaEntregaP = request.POST.get('fechaEntregaU')  
+        usuarioDesignadoP = request.POST.get('usuarioDesignadoU')  
+        print(tituloP)
+        tarea(titulo = str(tituloP), descripcion = str(descripcionP), fechaEntrega = str(fechaEntregaP),usuarioDesignado=str(usuarioDesignadoP),
+              fechaCreacion = str(fechaCreacionPrima.strftime("%d/%m/%Y"))).save()
+        tareasUsuario = tarea.objects.all().order_by('id')    
         
-             
 
     return  render(request,'gestion_tareas/dashboard.html',{
         'tareasUsuario':tareasUsuario

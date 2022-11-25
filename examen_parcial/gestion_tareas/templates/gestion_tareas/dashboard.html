@@ -54,25 +54,49 @@
         <div class="cuerpo">
             <div class="row h-100">
                 <div class = "col-1"></div>
-                <div class = "col-10" style="background-color: green;">
+                <div class = "col-10 ">
+                   
                     <form method = "post" action= "{% url 'gestion_tareas:dashboard' %}">
-                        {% csrf_token %}   
-                            <div>
-                            
-                                <input type="text" name = "nombreUsuario">
-                            </div>
-                            <div>
+                        {% csrf_token %} 
+                       
+                        
+                        <div class="row h-50 p-3">
+                            <div class="row h-25"></div>
+                            <div class="row h-75">
                                 
-                                <input type="text" name = "apellidoUsuario">
-                            </div>
-                            <div>
-                                
-                                <input type="number" name = "edadUsuario">
+                                        <ul class="list-group list-group-horizontal d-flex align-items-start">
+                                            <li class="list-group-item list-group-item-info" >Título&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </li>
+                                            <li class="list-group-item list-group-item-info">Descripción&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            <li class="list-group-item list-group-item-info">Fecha de Entrega&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            <li class="list-group-item list-group-item-info">Usuario Designado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    
+                                        </ul>
+                                        
+                                        <ul class="list-group list-group-horizontal-sm">
+                                                    <li class="list-group-item"> <input type="text" name = "tituloU"></li>
+                                                    <li class="list-group-item"> <input type="text" name = "descripcionU"></li>
+                                                    <li class="list-group-item"> <input type="text" name = "fechaEntregaU"></li>
+                                                    <li class="list-group-item"> <input type="text" name = "usuarioDesignadoU"></li>
+                                        </ul>
+                                        
+                            </div> 
+                        </div>
+                        <div class="row h-50">
+                        
+                            <div class="col-3 p-3 d-flex align-items-center">
+                                <button type="submit" name = "Crear" class="botonRegistrar">Registrar Tarea</button>
                             </div>
                             
-                            <button type="submit" name = "Crear">Registrar Tarea</button>
-                        </form>
-                
+                            <div class="col-2 d-flex align-items-center">
+                                
+                            </div>
+                            
+                        </div>
+                    
+                    </form>
                 </div>
                 <div class = "col-1"></div>
             </div>

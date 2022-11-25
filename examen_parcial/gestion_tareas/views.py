@@ -30,7 +30,7 @@ def ingreso(request):
 def dashboard(request):
     
     tareasUsuario = tarea.objects.all().order_by('id')
-    
+    usuariosRegistrados = usuario.objects.all().order_by('id')
     #creamos una lista vacia que mandara los usuarios designados
    
    
@@ -63,8 +63,16 @@ def dashboard(request):
          #si el usuario no se encuentra en la lista entonces lo añade
          if userDesign.usuarioDesignado not in listaDesignados:
             listaDesignados.append(str(userDesign.usuarioDesignado))
-
-    return  render(request,'gestion_tareas/dashboard.html',{'tareasUsuario':tareasUsuario, 'listaDesignados':listaDesignados})
+    #llenamos todos los usarios existentes para poder elegir al usuario al que se le va a registrar 
+    #o asignar dicha tarea        
+    listaUsuarios = []
+    
+    for  user in usuariosRegistrados:
+         #si el usuario no se encuentra en la lista entonces lo añade
+         if user.codigo not in listaUsuarios:
+            listaUsuarios.append(str(user.codigo))
+            
+    return  render(request,'gestion_tareas/dashboard.html',{'tareasUsuario':tareasUsuario, 'listaDesignados':listaDesignados, 'listaUsuarios':listaUsuarios})
     
     
 

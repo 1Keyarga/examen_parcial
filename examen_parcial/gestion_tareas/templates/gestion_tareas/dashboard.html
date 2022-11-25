@@ -76,10 +76,16 @@
                                         </ul>
                                         
                                         <ul class="list-group list-group-horizontal-sm">
-                                                    <li class="list-group-item"> <input type="text" name = "tituloU"></li>
-                                                    <li class="list-group-item"> <input type="text" name = "descripcionU"></li>
-                                                    <li class="list-group-item"> <input type="text" name = "fechaEntregaU"></li>
-                                                    <li class="list-group-item"> <input type="text" name = "usuarioDesignadoU"></li>
+                                                    <li class="list-group-item"> <input style="width:189px" type="text" name = "tituloU"></li>
+                                                    <li class="list-group-item"> <input style="width:188px" type="text" name = "descripcionU"></li>
+                                                    <li class="list-group-item"> <input style="width:191px" type="text" name = "fechaEntregaU"></li>
+                                                    <li class="list-group-item">
+                                                        <select style="width:186px; height:30px;" name = "usuarioDesignadoU"> 
+                                                            {% for design in listaUsuarios %}
+                                                            <option  value="{{design}}">{{design}}</option>
+                                                            {% endfor %}     
+                                                        </select>
+                                                    </li>
                                         </ul>
                                         
                             </div> 
@@ -99,16 +105,11 @@
                                 <div class="p-2"><button type="submit" name = "Filtrar" class="botonRegistrar">Filtrar</button></div>
                             </div>
                             <div class="col-3 d-flex align-items-center">
-                                <button type="text" class = "botonRegistrar" name = "Volver"><a href= "{% url 'gestion_tareas:dashboard' %}" style = "text-decoration:None; color:white;">Refrescar</a></button>
+                                <button type="submit" class = "botonRegistrar"><a href= "{% url 'gestion_tareas:dashboard' %}" style = "text-decoration:None; color:white;">Refrescar</a></button>
                             </div>
                             
                         </div>
                     </form>
-
-                    
-                
-                 
-                  
 
                 </div>
                 <div class = "col-1"></div>

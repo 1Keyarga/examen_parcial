@@ -31,16 +31,12 @@ def dashboard(request):
     
     tareasUsuario = tarea.objects.all().order_by('id')
     
+    #creamos una lista vacia que mandara los usuarios designados
+   
+   
     if 'Salida' in request.POST:
         
         return redirect('gestion_tareas:ingreso')
-    
-   # elif  'Eliminar' in request.POST:
-        
-         #idElimina = request.POST.get('valor') 
-        # print(idElimina)
-        # eliminarID = tarea.objects.get(id=idElimina)
-         #eliminarID.delete()
      
     elif 'Crear' in request.POST:
         #agarramos el dia de hoy
@@ -51,15 +47,24 @@ def dashboard(request):
         descripcionP = request.POST.get('descripcionU')
         fechaEntregaP = request.POST.get('fechaEntregaU')  
         usuarioDesignadoP = request.POST.get('usuarioDesignadoU')  
-        print(tituloP)
         tarea(titulo = str(tituloP), descripcion = str(descripcionP), fechaEntrega = str(fechaEntregaP),usuarioDesignado=str(usuarioDesignadoP),
               fechaCreacion = str(fechaCreacionPrima.strftime("%d/%m/%Y"))).save()
         tareasUsuario = tarea.objects.all().order_by('id')    
         
+    elif 'Filtrar' in request.POST:
+       
+         filtrado = request.POST.get('filtradoDesignado')    
+         tareasUsuario = tarea.objects.filter(usuarioDesignado=filtrado)  
+         
+    #ponemos al final el obtener lista designados para garantizar que despues de cualquier
+    #request lo actualice  
+    listaDesignados = []
+    for  userDesign in tareasUsuario:
+         #si el usuario no se encuentra en la lista entonces lo añade
+         if userDesign.usuarioDesignado not in listaDesignados:
+            listaDesignados.append(str(userDesign.usuarioDesignado))
 
-    return  render(request,'gestion_tareas/dashboard.html',{
-        'tareasUsuario':tareasUsuario
-    })
+    return  render(request,'gestion_tareas/dashboard.html',{'tareasUsuario':tareasUsuario, 'listaDesignados':listaDesignados})
     
     
 

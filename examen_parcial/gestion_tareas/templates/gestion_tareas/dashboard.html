@@ -90,13 +90,26 @@
                                 <button type="submit" name = "Crear" class="botonRegistrar">Registrar Tarea</button>
                             </div>
                             
-                            <div class="col-2 d-flex align-items-center">
-                                
+                            <div class="col-3 d-flex align-items-center">
+                                <select style="height:50px" name = "filtradoDesignado">
+                                    {% for design in listaDesignados %}
+                                    <option value="{{design}}">{{design}}</option>
+                                    {% endfor %}     
+                                </select>   
+                                <div class="p-2"><button type="submit" name = "Filtrar" class="botonRegistrar">Filtrar</button></div>
+                            </div>
+                            <div class="col-3 d-flex align-items-center">
+                                <button type="text" class = "botonRegistrar" name = "Volver"><a href= "{% url 'gestion_tareas:dashboard' %}" style = "text-decoration:None; color:white;">Refrescar</a></button>
                             </div>
                             
                         </div>
-                    
                     </form>
+
+                    
+                
+                 
+                  
+
                 </div>
                 <div class = "col-1"></div>
             </div>
